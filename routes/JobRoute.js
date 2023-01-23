@@ -85,7 +85,7 @@ try
 {
     const job=await Jobs.findById(req.params.id)
     const candidates=[]
-    job.applied.forEach(async(element)=>
+    job.applied.forEach((element)=>
         {
             candidates.push(element)
         })

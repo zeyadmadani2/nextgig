@@ -65,10 +65,9 @@ return(<>
 <input className="kuhdjf" onChange={e=>{setPassword(e.target.value)}} type="password" required name="password"/>
 <br/><br/><br/>
 {loading ? <img width={50} height={50} src="/loadinggg.gif"/>
+
 :<input style={{color:"#fff",width:80}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value="Sign In"/>
 }
-
-
 
 </form>
 <Link to="/register"><button className="sec">Don't Have An Account? Sign Up Instead</button></Link>

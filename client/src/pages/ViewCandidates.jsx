@@ -41,7 +41,7 @@ return(<>
             <h3 className="changeFont" style={{textAlign:"center"}}>Candidates</h3>
         <Candidate style={{textAlign:"center",width:"100%"}}>
         {
-          loading? <img style={{margin:"0 auto",display:"block"}} src="/loading.gif"/> :  jobs.length>0 ? jobs.map(element=>
+          loading? <img width={150} style={{margin:"0 auto",display:"block"}} src="/loading.svg"/> :  jobs.length>0 ? jobs.map(element=>
                 {
                     return <CandidateCard key={element} jobid={element}/>
                 })

@@ -51,7 +51,7 @@ return(<>
 <div className="col"></div>
 <div className="col-lg-10">
     <div style={{textAlign:"left"}}>
-{loading? <img style={{display:"block",margin:"10px auto"}} src="/loading.gif"/> : jobs.length>0 ? jobs.map(job=>
+{loading? <img width={300} style={{display:"block",margin:"10px auto"}} src="/loading.svg"/> : jobs.length>0 ? jobs.map(job=>
     {
         return <JobCard key={job._id} job={job}/>
     }) : <h4 className="changeFont">You haven't applied to any jobs yet.</h4>}

@@ -9,12 +9,10 @@ import Footer from "./Footer";
 import Filter from "./Filter";
 import PageHeading from "./PageHeading"
 import { useDispatch, useSelector } from "react-redux";
-const MainforSearch=({jobs,location})=>
+const MainforSearch=({jobs,location,loading})=>
 {
   const [open,setOpen]=useState(false)
-
-
-    const Main=styled.div`height:100%`
+  const Main=styled.div`height:100%`
 const Button=styled.button
 `
 cursor:pointer;
@@ -62,12 +60,13 @@ const [secret,setSecret]=useState(false)
   <Row>  
 
  <div className="col-lg-5">
-        <Set>
+        {  loading ? <img style={{margin:"20px auto",display:"block"}} width={100} src="/loading.svg"/> :         <Set>
         {jobs.length>0 ? jobs.map(job=>
           {
            return <Card key={job._id} id={job._id} job={job} secret={secret} setSecret={setSecret}/>
           }) : <h6 style={{marginTop:40}} className="changeFont">No Results Have Been Found</h6>}
-        </Set>
+        </Set>}
+
         </div>  
         <div className="col-lg-7">
         <JobDescription job={currentJob} secret={secret} setSecret={setSecret} />

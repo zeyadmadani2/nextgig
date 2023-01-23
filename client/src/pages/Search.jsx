@@ -8,6 +8,7 @@ const Search=()=>
 {
     const [jobs,setJobs]=useState([])
     const {id}=useParams()
+    const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
     const loc=id.split("+")
     useEffect(()=>
@@ -15,14 +16,16 @@ const Search=()=>
         !loc[0] && !loc[1] && navigate("/")
         const fetchJobs=async()=>
         {
+            setLoading(true)
 const res=await axiosInstance.get(`/Jobs/search/${id}`)
 setJobs(res.data)
+setLoading(false)
         }
         fetchJobs()
     },[id])
 return(<>
 <Nav/>
-<MainforSearch jobs={jobs} location={loc[1]}/>
+<MainforSearch jobs={jobs} location={loc[1]} loading={loading}/>
 <Footer/>
 </>)
 }

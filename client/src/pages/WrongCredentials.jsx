@@ -12,23 +12,29 @@ const Login=()=>
 {
     const dispatch=useDispatch()
 const [email,setEmail]=useState("")
+const [loading,setLoading]=useState(false)
 const [password,setPassword]=useState("")
 const navigate=useNavigate()
 const handleLogin=(e)=>
 {
     e.preventDefault()
+
 const Login=async()=>
 {
 
     try 
     {
+        setLoading(true)
         dispatch(loginStart())
         const res=await axiosInstance.post("/Auth/login-employee",{email:email,password:password})
         res.status===200 && dispatch(loginSuccess(res.data)) && navigate("/")
+        setLoading(false)
     }
     catch(e)
     {
+        setLoading(true)
         dispatch(loginFailure())
+        setLoading(false)
     }
 
 }
@@ -58,9 +64,8 @@ return(<>
 <br/><br/>
 <p style={{color:"red"}} className="changeFont">Wrong Username or Password</p>
 <input style={{color:"#fff",width:80}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value="Sign In"/>
-
-
 </form>
+<h2>{loading && <img width={50} height={50} src="/loadinggg.gif"/>}</h2>
 <Link to="/EmployerSignIn"><button className="sec">Already Registered? Log In Instead</button></Link>
 <br/><br/>
 <Link to="/forgot-password"><div className="centerTxt">Forgot Password?</div></Link>

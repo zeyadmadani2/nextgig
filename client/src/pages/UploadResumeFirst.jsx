@@ -84,7 +84,7 @@ return(<>
 
 <div className="con jhdfsihu" style={{minHeight:10,top:"250px"}}>
 <div style={{textAlign:"center"}}>
-<form >     
+<form style={{height:200}}>     
  <br/>
 
 <br/><br/><br/>
@@ -97,7 +97,7 @@ return(<>
 </label>
  :<h5 className="changeFont"> Uploaded {resumePerc}%</h5>
 }
-<input style={{color:"#fff",width:100,marginTop:50}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value="Continue"/>
+<input style={{color:"#fff",width:100,marginTop:50,display:"none"}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value=""/>
 </form>
 </div>
 </div>

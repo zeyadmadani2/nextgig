@@ -39,7 +39,7 @@ return(<>
 
     <div className="col-lg-12">
 {
-loading? <img style={{display:"block",margin:"0 auto"}} src="loading.gif"/>:
+loading? <img width={300} style={{display:"block",margin:"0 auto"}} src="loading.svg"/>:
 jobs.length>0 ?
 
 jobs.map(job=>
