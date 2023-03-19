@@ -1,5 +1,5 @@
 import axios from "axios"
 export const axiosInstance=axios.create(
     {
-        baseURL:"https://nextgig.site/api"
+        baseURL:"http://localhost:5002/api"
     })

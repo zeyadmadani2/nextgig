@@ -62,8 +62,8 @@ router.put("/applyforajob/:id",async(req,res,next)=>
         const employee=await Employee.findById(req.body.userId)
         const employerId=targetJob.employerId 
         const employerInfo=await Employer.findById(employerId)
-        console.log(employerInfo)
-        const transporter=nodemailer.createTransport(
+        setTimeout(() => {
+          const transporter=nodemailer.createTransport(
             {
                   service:"hotmail",
            auth: {
@@ -71,7 +71,7 @@ router.put("/applyforajob/:id",async(req,res,next)=>
              pass: process.env.MAILER_PASSWORD
            }})
            const mailOptions = {
-            from: 'no_reply.nextgig@outlook.com',
+            from: 'next_gig@outlook.com',
             to: employerInfo.email, 
             subject: `${employee.name}'s Resume - New Application Received`,
             html: `
@@ -92,6 +92,8 @@ router.put("/applyforajob/:id",async(req,res,next)=>
          res.status(200).json("Email sent")
            }
         });
+        }, 100);
+
         
 res.status(200).json("you applied for the job")
     }
@@ -120,7 +122,8 @@ router.put("/sendemailtoclient/:id",async(req,res,next)=>
         const emp=await Employee.findById(req.params.id)
         const job=await Jobs.findById(req.body.jobId)
         const employer=await Employer.findById(job.employerId)
-        const transporter=nodemailer.createTransport(
+        setTimeout(() => {
+          const transporter=nodemailer.createTransport(
             {
                   service:"hotmail",
            auth: {
@@ -128,7 +131,7 @@ router.put("/sendemailtoclient/:id",async(req,res,next)=>
              pass: process.env.MAILER_PASSWORD
            }})
            const mailOptions = {
-            from: 'no_reply.nextgig@outlook.com',
+            from: 'next_gig@outlook.com',
             to: emp.email, 
             subject: `Your Application Has Been Received`, 
             html: `
@@ -148,6 +151,8 @@ router.put("/sendemailtoclient/:id",async(req,res,next)=>
          res.status(200).json("Email sent")
            }
         });
+        }, 100);
+
         
 res.status(200).json("you applied for the job")
     }

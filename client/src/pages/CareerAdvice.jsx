@@ -68,7 +68,7 @@ Featured Articles
   <div className="col-lg-1"></div>
   <div className="col-lg-5 col-md-12 col-sm-12 sepPics" style={{textAlign:"center",position:"relative",cursor:"pointer",display:"flex",justifyContent:"center"}}>
 <Link to="/interview-questions">
-<img className="iuhdfkjfd"  width={470} height="400" src="https://eu-recruit.com/wp-content/uploads/2020/11/what-questions-to-ask-at-a-job-interview-2-1024x682.jpg"/>
+<img className="iuhdfkjfd"  width={470} height="400" src="/potential-questions.jpg"/>
 </Link>
  <p className="hukjdhsfws" style={{color:"white",position:"absolute",left:50,right:50,bottom:10,fontSize:20,fontWeight:"bold"}}>
     100 Potential Interview Questions
@@ -77,7 +77,7 @@ Featured Articles
   
   <div className="col-lg-5 col-md-12 col-sm-12 sepPics" style={{textAlign:"center",position:"relative",cursor:"pointer",display:"flex",justifyContent:"center"}}>
 <Link to="/first-90-day">
-<img className="iuhdfkjfd"  width={470} height="400" src="https://staffroom.co.nz/wp-content/uploads/2020/06/Services-Recruitment-Agency-Tauranga-grayscale-scaled.jpg"/>
+<img className="iuhdfkjfd"  width={470} height="400" src="/first-90-days.jpg"/>
 <p className="hukjdhsfws" style={{color:"white",position:"absolute",left:50,right:50,bottom:10,fontSize:20,fontWeight:"bold"}}>
 TACKLE THE FIRST 90 DAYS OF YOUR NEXT ROLE
  </p>

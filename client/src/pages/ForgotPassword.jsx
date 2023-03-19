@@ -67,7 +67,7 @@ const ForgotPassword=()=>
   },[])
   const handleOpen = () => setOpen(true);
   const handleFailure = () => setOpenn(true);
-  
+  const [loading,setLoading]=useState(false)
   const handleX = () => setOpenn(false);
   const handleClose = () => setOpen(false);
   const [email,setEmail]=useState("")
@@ -78,7 +78,9 @@ const handleReset=(e)=>
   e.preventDefault()
   const Fun=async(e)=>
   {
+    setLoading(true)
     const res=await axiosInstance.post(`/auth/reset`,{email:email})
+    setLoading(false)
     res.status===200 ? handleOpen() : handleFailure()
   }
   Fun()
@@ -92,7 +94,7 @@ return(<>
     <div className="row">
 
     <div className="col-lg-12">
-    <form onClick={(e)=>{handleReset(e)}}>
+    <form onSubmit={(e)=>{handleReset(e)}}>
 <br/>
 
   <div className="form-outline mb-4">
@@ -103,7 +105,7 @@ return(<>
     <h4 className="changeFont">Email address</h4>
     <input onChange={(e)=>{setEmail(e.target.value)}} type="email" id="form2Example1" className="form-control" />
     <br/><br/>
-    <input style={{width:140,color:"#fff"}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value="Reset Password"/>
+    <input style={{width:140,color:"#fff"}} className="btn btn-primary btn-block mb-4 minBtn centerTxt" type="submit" value={`${loading ? "In Progress..." : "Reset Password"}`}/>
   </div>
 
 </form>

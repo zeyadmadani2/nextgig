@@ -74,12 +74,13 @@ export const LoginEmployer=(async(req,res,next)=>
 export const forgotPassword=async(req,res,next)=>
 {
   const token=uuid()
-  const employee=await Employee.findOne({email:req.body.email})
-  const employer=await Employer.findOne({email:req.body.email})
-  if(employee)
+  const employee=await Employee.findOne({email:req.body.email.toLowerCase()})
+  const employer=await Employer.findOne({email:req.body.email.toLowerCase()})
+  if(employee!==null)
   {
 
     await employee.updateOne({resetToken:token,expireToken:Date.now()+900000},{new:true})
+
    const transporter=nodemailer.createTransport(
 {
       service:"hotmail",
@@ -88,7 +89,7 @@ auth: {
  pass: process.env.MAILER_PASSWORD
 }})
 const mailOptions = {
-from: 'no_reply.nextgig@outlook.com', 
+from: 'next_gig@outlook.com', 
 to: employee.email, 
 subject: `${employee.name}'s Password Reset Link - Next Gig`, 
 html: `<body><p>Hello ${employee.name},</p> <p>Below is your reset link for your account.</p> <p><a href="https://www.nextgig.site/5433367890-9876546789087654367890-987654356787654678976-894365465463545486547568556834574865486484-3456789876567898765456789-8765467890876578905-4389034934234-4651498764596835468489654685486458468468487649796549846458796554864589659864589764567890238724-453333333598573480734597043759387589439850284390594023450-2317Y6U32179808/${token}">Reset Link</a></p> <p>Thank you for using Next Gig!</p></body>`, 
@@ -102,7 +103,7 @@ res.status(200).json("Email sent")
 }
 });
   }
-  else if(employer)
+  else if(employer!==null)
   {
   
     await employer.update({resetToken:token,expireToken:Date.now()+900000},{new:true})
@@ -114,7 +115,7 @@ auth: {
  pass: process.env.MAILER_PASSWORD
 }})
 const mailOptions = {
-from: 'no_reply.nextgig@outlook.com', 
+from: 'next_gig@outlook.com', 
 to: employer.email, 
 subject: `${employer.company}'s Password Reset Link - Next Gig`,
 html: `<body><p>Hello ${employer.company},</p> <p> Below is your reset link for your account.</p> <p><a href="https://www.nextgig.site/5433367890-9876546789087654367890-987654356787654678976-894365465463545486547568556834574865486484-3456789876567898765456789-8765467890876578905-4389034934234-4651498764596835468489654685486458468468487649796549846458796554864589659864589764567890238724-453333333598573480734597043759387589439850284390594023450-2317Y6U32179808/${token}">Reset Link</a></p> <p>Thank you for using Next Gig!</p></body>`, 

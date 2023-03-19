@@ -20,6 +20,7 @@ const ViewCandidates=()=>
     console.log(id)
     useEffect(()=>
     {
+        window.scrollTo({top:0,behavior:"auto"})
         const Fun=async()=>
         {
             setLoading(true)

@@ -3,10 +3,15 @@ import Footer from "../components/Footer"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import Advices from "../components/Advices"
+import { useEffect } from "react"
 import HorizontalTips from "../components/HorizontalTips"
 import SuccsessfullStoriesHeading from "../components/SuccsessfullStoriesHeading"
 const ThirdStory=()=>
 {
+  useEffect(()=>
+  {
+    window.scrollTo(0,0)
+  },[])
     const Box=styled.div`
     max-height:320px;
     background-color:#3d2462;

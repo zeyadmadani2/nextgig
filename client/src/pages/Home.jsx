@@ -9,6 +9,7 @@ import JobDescription from "../components/JobDescription"
 import Card from "../components/Card"
 import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
+import "./style.css"
 const Home=({jobs})=>
 {
 
@@ -19,16 +20,7 @@ cursor:pointer;
 `
 const Set=styled.div
 `
-display:flex;
-flex-direction:column;
-gap:10px;
-overflow-y: scroll;
-position: sticky;
-padding:5px;
-height: 100vh;
-font-size: 14px;
-top: 0;
-margin:10px;
+
 `
 
 const CardElement=styled.div
@@ -62,12 +54,12 @@ return(<>
   <Row>  
 
  <div className="col-lg-5">
-        <Set>
+        <div className="set">
         {jobs.map(job=>
           {
            return <Card key={job._id} id={job._id} job={job}/>
           })}
-        </Set>
+        </div>
         </div>  
         <div className="col-lg-7">
         <JobDescription/>

@@ -73,33 +73,25 @@ export const EmployerNav= () => {
 <Container>
 
 <Spot>
-    <Logo width={100} height={60} src="/Jobs-Logo.png"/>
+<Logo width={100} height={60} src="/Jobs-Logo.png"/>
 </Spot>
 <Spot>
 <Spot>
 <Spot className="spot">
-  
 <Spot className="tools">
 <Link to="/applications" style={{textDecoration:"none",color:"inherit"}}>
 Applications
 </Link>
 </Spot>
-
-<Spot className="tools">
 <Link to="/post" style={{textDecoration:"none",color:"inherit"}}>
 Post a Job
 </Link>
-</Spot>
-<Spot className="tools">
   {!currentUser && <Link to="/EmployerSignIn" style={{textDecoration:"none",color:"inherit"}}>
 Post a Job
 </Link> }
-
-</Spot>
 </Spot>
 </Spot>
 <Spot>    
-     
 </Spot>
 </Spot>
 <Spot className="lastSpot">

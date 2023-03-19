@@ -301,7 +301,7 @@ return(<>
     </General>
 <RightSec>
     <Group>
-    {currentUser && currentUser.jobsAppliedFor.includes(currentJob._id)? <button disabled style={{display:"flex",fontSize:10,alignItems:"center",justifyContent:"center"}} className="fgdsfsgds">You Applied</button> :     <Btn style={{display:"flex",fontSize:10,alignItems:"center",justifyContent:"center"}} onClick={handleApply} className="easilyApplyBtn">Easily Apply</Btn>}
+    {currentUser && currentUser.jobsAppliedFor.includes(currentJob._id)? <button disabled style={{display:"flex",fontSize:10,alignItems:"center",justifyContent:"center"}} className="fgdsfsgds">You Applied</button> : <Btn style={{display:"flex",fontSize:10,alignItems:"center",justifyContent:"center"}} onClick={handleApply} className="easilyApplyBtn">Easily Apply</Btn>}
 <div>
 
 </div>
